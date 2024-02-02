@@ -7,3 +7,11 @@
 .App footer {
   font-size: 14px;
 }
+
+.App .container {
+  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: 8px 8px 12px red;
+  background-color: lightpink;
+  max-width: 600px;
+}
