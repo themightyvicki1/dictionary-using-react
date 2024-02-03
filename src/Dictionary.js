@@ -20,7 +20,7 @@ export default function Dictionary() {
   //build api axios in search b/c when searching we want to make the axios call
   function search(event) {
     event.preventDefault();
-    alert(`searching for ${word}`);
+    //alert(`searching for ${word}`);
 
     let apiKey = `0d7079af8c9adb3t72540o1c3a7eb56d`;
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${word}&key=${apiKey}`;
@@ -41,6 +41,7 @@ export default function Dictionary() {
             placeholder="Search for word..."
             autoFocus={true}
             onChange={handleWordChange}
+            id="search-bar"
           ></input>
         </span>
         <span className="col-3">
