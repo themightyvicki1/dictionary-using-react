@@ -1,14 +1,22 @@
 import React, { useState } from "react";
 import "./Dictionary.css";
 import axios from "axios";
+import DefinitionResults from "./DefinitionResults";
 
 export default function Dictionary() {
   let [word, setWord] = useState("");
+  // state goal = to track state of current definition, store definition of word that is typed//
+  // null so null by default
+  let [results, setResults] = useState(null);
 
   function handleResponse(response) {
     //[0] b/c stored as an array and we only want first definition (not with this api)
-    console.log(response.data);
+    //console.log(response.data);
+    //showing the first defintion, if you change [1] it'll show second definition etc//
+    //console.log(response.data.meanings[0].definition);
+    setResults(response.data);
   }
+
   //build api axios in search b/c when searching we want to make the axios call
   function search(event) {
     event.preventDefault();
@@ -43,6 +51,11 @@ export default function Dictionary() {
           ></input>
         </span>
       </form>
+      {/*send definition results to this component to be displayed and styled*/}
+      {/*component name, property name, property value which is the state set above*/}
+      <DefinitionResults results={results} />
+      {/*every time the state changes the whole component is rerendered, rerun, with new data*/}
+      {/*it reacts when a state is changed, rerendered */}
     </div>
   );
 }
