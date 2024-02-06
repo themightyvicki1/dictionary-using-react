@@ -42,7 +42,6 @@ export default function Dictionary() {
             autoFocus={true}
             onChange={handleWordChange}
             id="search-bar"
-            autoComplete={false}
           ></input>
         </span>
         <span className="col-3">

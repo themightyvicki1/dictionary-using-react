@@ -11,10 +11,6 @@ export default function Meanings(props) {
       <p className="exampleDisplay">
         <em>{props.meanings.example}</em>
       </p>
-
-      {props.meanings.synonyms.map(function (synonyms, index) {
-        return <div key={index}>{synonyms}</div>;
-      })}
     </div>
   );
 }
