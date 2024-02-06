@@ -8,7 +8,7 @@ export default function DefinitionResults(props) {
     return (
       <div className="DefinitionResults">
         {/*to display the word that was searched */}
-        <div className="wordDisplay"> Word searched: {props.results.word}</div>
+        <div className="wordDisplay"> {props.results.word}</div>
 
         {/*to display the first definition of the word */}
         {/*create a map to loop through all the definitions*/}
