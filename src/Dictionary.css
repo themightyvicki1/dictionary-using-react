@@ -2,3 +2,14 @@
   background-color: deeppink;
   text-align: left;
 }
+
+.DefinitionResults {
+  padding: 15px 15px;
+  border: 2px solid black;
+}
+
+.Meanings {
+  border: 5px solid green;
+  border-radius: 8px;
+  padding: 50px 30px;
+}

@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <header>Dictionary App using React</header>
+        <header>What word do you want to look up?</header>
         <main>
           <Dictionary />
         </main>
