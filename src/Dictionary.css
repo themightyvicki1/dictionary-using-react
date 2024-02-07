@@ -12,6 +12,7 @@
   border-radius: 8px;
   padding: 30px 30px;
   background-color: #ffb4ac;
+  box-shadow: 7px 7px 7px#679186;
 }
 
 .holdingMeaning {
@@ -27,12 +28,18 @@
   background-color: #ffebd3;
 }
 
+.Dictionary .suggestions {
+  font-size: 12px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
 .Dictionary .btn {
   color: #ffebd3;
   background: #264e70;
   border: 2px solid #264e70;
   font-weight: 500;
-  padding: 5px 40px;
+  width: 100%;
 }
 
 .Dictionary .btn:hover {

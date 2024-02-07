@@ -8,7 +8,7 @@ function App() {
       <div className="container">
         <header>What word do you want to look up?</header>
         <main>
-          <Dictionary />
+          <Dictionary defaultWord="sunset" />
         </main>
         <footer>
           <a
