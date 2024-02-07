@@ -39,3 +39,12 @@
   background: #ffebd3;
   color: #264e70;
 }
+
+.Synonyms {
+  padding: 0;
+}
+.Synonyms li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
