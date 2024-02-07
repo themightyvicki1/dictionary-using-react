@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Dictionary.css";
 import axios from "axios";
 import DefinitionResults from "./DefinitionResults";
+import Photos from "./Photos";
 
 //accepting props to access defaultWord from App component //
 export default function Dictionary(props) {
@@ -10,13 +11,19 @@ export default function Dictionary(props) {
   // null so null by default
   let [results, setResults] = useState(null);
   let [loaded, setLoaded] = useState(false);
+  let [photos, setPhotos] = useState(null);
 
-  function handleResponse(response) {
+  function handleDictionary(response) {
     //[0] b/c stored as an array and we only want first definition (not with this api)
     //console.log(response.data);
     //showing the first defintion, if you change [1] it'll show second definition etc//
     //console.log(response.data.meanings[0].definition);
     setResults(response.data);
+  }
+
+  function handlePexelsResponse(response) {
+    //console.log(response.data);
+    setPhotos(response.data.photos);
   }
 
   function search() {
@@ -25,7 +32,17 @@ export default function Dictionary(props) {
     let apiKey = `0d7079af8c9adb3t72540o1c3a7eb56d`;
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${word}&key=${apiKey}`;
 
-    axios.get(apiUrl).then(handleResponse);
+    axios.get(apiUrl).then(handleDictionary);
+
+    //creating api for pictures
+    const pexelsApiKey = `NaGQDyK82WUlaGzbKFRWYtgGDFvZNnEBEpSajlhzaJcpZrv2pIWO1dyX`;
+    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${word}&per_page=12`;
+    //used to authenticate api for images
+    let headers = {
+      "Content-Type": "application/json",
+      Authorization: pexelsApiKey,
+    };
+    axios.get(pexelsApiUrl, { headers }).then(handlePexelsResponse);
   }
 
   //build api axios in search b/c when searching we want to make the axios call
@@ -75,6 +92,7 @@ export default function Dictionary(props) {
         <DefinitionResults results={results} />
         {/*every time the state changes the whole component is rerendered, rerun, with new data*/}
         {/*it reacts when a state is changed, rerendered */}
+        <Photos photos={photos} />
       </div>
     );
   } else {
